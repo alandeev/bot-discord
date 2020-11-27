@@ -17,6 +17,7 @@ module.exports = {
       username: DataTypes.STRING,
       discriminator: DataTypes.STRING,
       avatar: DataTypes.STRING,
+      desc: DataTypes.STRING,
       messages: {
         type: DataTypes.INTEGER,
         defaultValue: 0
@@ -24,6 +25,10 @@ module.exports = {
       commands: {
         type: DataTypes.INTEGER,
         defaultValue: 0
+      },
+      role: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
       },
       created_at: DataTypes.DATE,
       updated_at: DataTypes.DATE,

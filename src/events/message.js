@@ -29,11 +29,19 @@ module.exports = async (message) => {
   if(content){
     if(message.channel.id == '779105654886760477'){
       await user.addmsg();
+      const upRole = await user.upRole();
+      if(upRole){
+        return message.channel.send(`${author.username}#${author.discriminator} acabou de upar para o nivel ${upRole}`);
+      }
     }
 
     if(content[0] == '!'){
       if(message.channel.id == '779105654886760477'){
         await user.addcmd();
+      }
+
+      if(content == '/comandos' || content == '/cmds'){
+        return message.channel.send(`Comandos ainda estão em desenvolvimento.`);
       }
 
       const args = message.content.slice(1).trim().split(' ');

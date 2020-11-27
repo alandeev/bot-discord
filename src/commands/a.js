@@ -8,7 +8,12 @@ exports.run = async (message, args, user) => {
     return message.reply('você não pode marcar todos no anonimo');
   }
 
-  message.channel.send(msg);
+  console.log({anonymous: {
+    username: `${user.username}#${user.discriminator}`,
+    content :msg
+  }})
+
+  message.channel.send(msg).then(msg => msg.delete({ timeout: 500000 }));;
   message.delete();
 }
 

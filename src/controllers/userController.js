@@ -3,7 +3,7 @@ const User = require('../models/User');
 class userController {
   async createUser({ id: user_id, username, discriminator, avatar }){
     try{
-      return await User.create({ user_id, username, discriminator, avatar, messages: 0, commands: 0 });
+      return await User.create({ user_id, username, discriminator, avatar, messages: 0, commands: 0, role: 0, desc: '' });
     }catch(err){
       return false;
     }
