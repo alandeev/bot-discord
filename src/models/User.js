@@ -44,8 +44,10 @@ class User extends Model{
 
   async addLastMessage(content){
     if(typeof(content) == 'string' && content.length > 0){
-      this.last_message = content;
-      await this.save();
+      try{
+        this.last_message = content;
+        await this.save();
+      }catch(err){}
     }
   }
 }

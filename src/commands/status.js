@@ -1,9 +1,16 @@
 const Discord = require('discord.js');
 
+const rankedLucked = [
+  ":first_place:",
+  ":second_place:",
+  ":third_place:"
+]
+
 const levels = require('../configs/levels.json');
 
 const userController = require('../controllers/userController');
 const User = require('../models/User');
+const rankmsg = require('./rankmsg');
 
 module.exports = async (message, args, _user, client) => {
   const { user_id, username, discriminator, avatar, commands, messages, role, desc } = _user;
@@ -32,7 +39,7 @@ module.exports = async (message, args, _user, client) => {
       url: discordUser.displayAvatarURL({dynamic : true}),
     },
     fields: [
-      { name: 'Rank :crown:', value: `#${rankMsg+1}` },
+      { name: 'Rank :crown:', value: `${rankedLucked[rankMsg] ? rankedLucked[rankMsg] : `#${rankMsg}`}` },
       { name: 'Nível :level_slider:', value: `[${user.role}] ${levels[user.role].name}` },
       { name: 'Mensagens :speech_left:', value: user.messages, inline: true },
       { name: 'Comandos :video_game:', value: user.commands, inline: true},

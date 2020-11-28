@@ -7,6 +7,13 @@ module.exports = [
     channels: ['779105654886760477'],
   },
   {
+    names: ["apostar"],
+    description: "Apostar com amiguinhos!",
+    role: 1,
+    run: require('./commands/apostar'),
+    channels: ['779105654886760477'],
+  },
+  {
     names: ["desc", "descricao"],
     description: "definir uma descrição no status",
     role: 1,
@@ -16,7 +23,7 @@ module.exports = [
   {
     names: ["l", "level"],
     description: "Exibir informações de nível do usuário",
-    role: 0,
+    role: 5,
     run: require('./commands/level'),
     channels: ['779105654886760477']
   },
