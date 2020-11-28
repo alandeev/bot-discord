@@ -32,17 +32,18 @@ module.exports = async (message, args, _user, client) => {
       url: discordUser.displayAvatarURL({dynamic : true}),
     },
     fields: [
-      { name: ':speech_left: Mensagens', value: user.messages },
-      { name: ':video_game:  Comandos', value: user.commands },
-      { name: ':crown: Rank', value: `#${rankMsg+1}` },
-      { name: ':level_slider: Nível', value: `[${user.role}] ${levels[user.role].name}` }
+      { name: 'Rank :crown:', value: `#${rankMsg+1}` },
+      { name: 'Nível :level_slider:', value: `[${user.role}] ${levels[user.role].name}` },
+      { name: 'Mensagens :speech_left:', value: user.messages, inline: true },
+      { name: 'Comandos :video_game:', value: user.commands, inline: true},
     ],
     footer: {
       text: `requisitado por: ${message.author.username}#${message.author.discriminator}`,
+      icon_url: message.author.displayAvatarURL({dynamic : true}),
     },
   })
 
-  if(desc){ embed.description = desc; }
+  if(desc){ embed.description = '```\n'+desc+'```'; }
 
   message.reply(embed).then(msg => msg.delete({ timeout: 30000 }));
 }

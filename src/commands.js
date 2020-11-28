@@ -2,7 +2,7 @@ module.exports = [
   {
     names: ["a", "anonimo"],
     description: "Enviar mensagem anonima",
-    role: 2,
+    role: 1,
     run: require('./commands/a'),
     channels: ['779105654886760477'],
   },
@@ -37,7 +37,7 @@ module.exports = [
   {
     names: ["s", "status"],
     description: "Exibir informações sobre o usuário",
-    role: 4,
+    role: 0,
     run: require('./commands/status'),
     channels: ['779105654886760477']
   }

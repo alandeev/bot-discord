@@ -22,7 +22,7 @@ module.exports = async (message, client) => {
       await user.addLastMessage(message.content);
       const upRole = await user.upRole();
       if(upRole){
-        return message.channel.send(`${author.username}#${author.discriminator} acabou de upar para o nivel ${upRole}`);
+        return message.channel.send(`<@${author.id}> acabou de upar para o nivel ${upRole}`);
       }
     }
 
@@ -45,7 +45,7 @@ module.exports = async (message, client) => {
       const command = commands.find(command => command.names.find(name => name == cmdName ));
       if(command){
         if(user.role < command.role){
-          return message.reply('`!'+command.names[0]+'` apenas pessoas `nível '+command.role+'` podem usar este comando. Você está `nivel '+user.role+'`');
+          return message.reply('`!'+command.names[0]+'` apenas pessoas `nível '+command.role+'` podem usar este comando. você está `nivel '+user.role+'.`');
         }
         if(!command.channels.find(channel => channel == message.channel.id)){
           return message.reply('Você não pode utilizar este comando nesse canal')
