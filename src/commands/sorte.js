@@ -1,5 +1,5 @@
 const fs = require('fs');
-exports.run = async (message, args, user) => {
+module.exports = async (message, args, user) => {
   fs.readFile('./src/utils/messages.txt', (error, data) => {
     if(error) return console.log({error});
 
@@ -9,12 +9,6 @@ exports.run = async (message, args, user) => {
     do{
       randomMessage = messages[(Math.random() * messages.length).toFixed()];
     }while(!randomMessage)
-    message.reply(randomMessage).then(msg => msg.delete({ timeout: 20000 }));
+    message.reply(randomMessage).then(msg => msg.delete({ timeout: 10000 }));
   })
-}
-
-exports.help = {
-  name: "sorte",
-  description: "Gera uma mensagem aleatoria",
-  channels: ['779105654886760477', '777657136435429392',''],
 }

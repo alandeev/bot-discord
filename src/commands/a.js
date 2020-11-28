@@ -1,4 +1,4 @@
-exports.run = async (message, args, user) => {
+module.exports = async (message, args, user) => {
   const msg = args.join(' ');
   if(!msg){
     return message.reply('você precisa enviar alguma mensagem.');
@@ -15,10 +15,4 @@ exports.run = async (message, args, user) => {
 
   message.channel.send(msg).then(msg => msg.delete({ timeout: 500000 }));;
   message.delete();
-}
-
-exports.help = {
-  name: "a",
-  description: "Enviar mensagem anonima",
-  channels: ['779105654886760477', '777657136435429392'],
 }

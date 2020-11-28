@@ -11,7 +11,8 @@ class User extends Model{
       messages: DataTypes.INTEGER,
       commands: DataTypes.INTEGER,
       role: DataTypes.INTEGER,
-      desc: DataTypes.STRING
+      desc: DataTypes.STRING,
+      last_message: DataTypes.STRING
     }, {
       sequelize
     })
@@ -39,6 +40,13 @@ class User extends Model{
   async setDescription(desc){
     this.desc = desc;
     await this.save();
+  }
+
+  async addLastMessage(content){
+    if(typeof(content) == 'string' && content.length > 0){
+      this.last_message = content;
+      await this.save();
+    }
   }
 }
 

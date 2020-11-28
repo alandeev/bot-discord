@@ -18,6 +18,7 @@ module.exports = {
       discriminator: DataTypes.STRING,
       avatar: DataTypes.STRING,
       desc: DataTypes.STRING,
+      last_message: DataTypes.STRING,
       messages: {
         type: DataTypes.INTEGER,
         defaultValue: 0
