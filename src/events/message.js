@@ -12,6 +12,8 @@ module.exports = async (message, client) => {
   let user = await userController.findUser(author.id);
   if(!user){
     user = await userController.createUser(author);
+    let role = await message.guild.roles.fetch('777657136259137569');
+    message.member.roles.add(role)
     if(!user) return;
   }
   if(content){
@@ -22,7 +24,9 @@ module.exports = async (message, client) => {
       await user.addLastMessage(message.content);
       const upRole = await user.upRole();
       if(upRole){
-        return message.channel.send(`<@${author.id}> acabou de upar para o nivel ${upRole}`);
+        let role = await message.guild.roles.fetch(upRole.id);
+        message.member.roles.add(role)
+        return message.channel.send(`<@${author.id}> acabou de upar para o nivel ${upRole.name}`);
       }
     }
 
@@ -50,8 +54,10 @@ module.exports = async (message, client) => {
         if(!command.channels.find(channel => channel == message.channel.id)){
           return message.reply('Você não pode utilizar este comando nesse canal')
         }
-        command.run(message, args, user, client);
+        return command.run(message, args, user, client);
       }
+
+      return message.react('😄')
     }
   }
 }

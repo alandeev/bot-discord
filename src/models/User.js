@@ -34,7 +34,7 @@ class User extends Model{
 
     this.role += 1;
     await this.save();
-    return this.role;
+    return levels[this.role];
   }
 
   async setDescription(desc){

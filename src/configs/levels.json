@@ -2,23 +2,28 @@
   "0": { "name": "virgem" },
   "1": {
     "count": 200,
-    "name": "novato"
+    "name": "Cria",
+    "id": "777657136259137569"
   },
   "2": {
     "count": 1000,
-    "name": "brabo"
+    "name": "Ativo",
+    "id": "777657136259137570"
   },
   "3": {
     "count": 3000,
-    "name": "conversador"
+    "name": "Conhecido",
+    "id": "777657136259137571"
   },
   "4": {
     "count": 7000,
-    "name": "brabo"
+    "name": "Famosinho",
+    "id": "777657136259137572"
   },
   "5": {
     "count": 12000,
-    "name": "famoso pra krl"
+    "name": "Hypado",
+    "id": "777657136259137573"
   },
   "icons": {
     "0": ":zero:",

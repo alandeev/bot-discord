@@ -50,7 +50,7 @@ module.exports = async (message, args, _user, client) => {
     },
   })
 
-  if(desc){ embed.description = '```\n'+desc+'```'; }
+  if(desc){ embed.description = '```\n'+user.desc+'```'; }
 
   message.reply(embed).then(msg => msg.delete({ timeout: 30000 }));
 }

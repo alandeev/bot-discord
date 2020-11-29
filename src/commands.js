@@ -23,9 +23,16 @@ module.exports = [
   {
     names: ["l", "level"],
     description: "Exibir informações de nível do usuário",
-    role: 5,
+    role: 0,
     run: require('./commands/level'),
     channels: ['779105654886760477']
+  },
+  {
+    names: ["b", "bot"],
+    description: "Exibir informações do BOT",
+    role: 1,
+    run: require('./commands/bot'),
+    channels: ['779105654886760477', '779106089396207647'],
   },
   {
     names: ["rank", "rankmsg"],
